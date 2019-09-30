@@ -32,8 +32,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define MATRIX_COLS 14
 
 // Originally made for a Teensy 2++
-#define MATRIX_COL_PINS { C6, D4, D0, D1, D2, D3, F4, F5, F6, F7, B1, B3, B2, B6 }
-#define MATRIX_ROW_PINS { D7, E6, B4, B5 }
+#define MATRIX_COL_PINS { C6, D4, D0, D1, D3, D2, F5, F4, F6, F7, B1, B3, B2, B6 }
+#define MATRIX_ROW_PINS { B5, B4, E6, D7 }
 #define UNUSED_PINS
 
 /* define if matrix has ghost */
