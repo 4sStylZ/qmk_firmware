@@ -60,7 +60,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     LALT(KC_F4), KC_F1     , KC_F2       , KC_F3       , KC_F4       , KC_F5  , KC_F6     , KC_F7  , KC_F8  , KC_F9   , KC_F10     , KC_F11    , KC_F12    , _______,
     _______    , _______   , _______     , KC_PSCR     , KC_BRIU     , KC_BRID, LCTL(KC_A), KC_HOME, KC_UP  , KC_END  , UC(0x203D) , UC(0x8593), UC(0x2E2E),
     _______    , _______   , LSFT(KC_DEL), LCTL(KC_INS), LSFT(KC_INS), KC_DEL , KC_DEL    , KC_LEFT, KC_DOWN, KC_RIGHT, UC(0x8592) , UC(0x8595), UC(0x8594), _______,
-    _______    , _______   , KC_MUTE     , KC_VOLD     , KC_VOLU     , BL_TOGG, KC_CAPS   , _______, _______, _______ , _______    , RESET     , _______            ,
+    _______    , _______   , KC_MUTE     , KC_VOLD     , KC_VOLU     , BL_ON  , BL_OFF    , _______, _______, _______ , _______    , RESET     , _______            ,
     _______    , _______   , _______     ,                             _______,                                                      _______   , _______   , _______
   )
 };
@@ -99,14 +99,4 @@ void matrix_scan_user(void) {     // The very important timer.
       is_alt_tab_active = false;
     }
   }
-}
-
-void led_set_user(uint8_t usb_led) {
-    if(IS_LED_ON(usb_led, USB_LED_CAPS_LOCK)) {
-        setPinOutput(B7);
-        writePinHigh(B7);
-    } else {
-        setPinOutput(B7);
-        writePinLow(B7);
-    }
 }
