@@ -21,16 +21,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
  * See https://docs.qmk.fm/#/custom_quantum_functions?id=example-keyboard_pre_init_user-implementation
  */
 void keyboard_pre_init_user(void) {
-  // Call the keyboard pre init code.
 
-  // Set our LED pins as output
-  setPinOutput(C3);
 }
 
 void matrix_init_kb(void) {
 
-    // Flash the led 1 sec on startup.
-    writePinHigh(C3);
-    wait_ms(1000);
-    writePinLow(C3);
 }
