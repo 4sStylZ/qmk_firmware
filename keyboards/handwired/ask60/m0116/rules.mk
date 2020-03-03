@@ -1,0 +1,2 @@
+# MCU name
+MCU = MK20DX256
