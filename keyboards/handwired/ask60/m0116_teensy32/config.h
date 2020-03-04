@@ -17,8 +17,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #pragma once
 
-// Commented for the teensy 3.2 compatibility.
-#include "config_common.h"
+// Removed for teensy 3.2 compatibility
+//#include "config_common.h"
 
 /* USB Device descriptor parameter */
 #define VENDOR_ID       0xFEED
@@ -27,9 +27,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define MANUFACTURER    4sStylZ and others makers
 #define PRODUCT         ASK60
 #define DESCRIPTION     QMK keyboard firmware for ASK60 handwired
-
-/* Define the backlight */
-/*#define BACKLIGHT_ON_STATE 1*/
 
 /* key matrix size */
 #define MATRIX_ROWS 5

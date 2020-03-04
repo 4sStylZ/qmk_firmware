@@ -27,9 +27,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define PRODUCT         ASK60
 #define DESCRIPTION     QMK keyboard firmware for ASK60 handwired
 
-/* Define the backlight */
-/*#define BACKLIGHT_ON_STATE 1*/
-
 /* key matrix size */
 #define MATRIX_ROWS 5
 #define MATRIX_COLS 14
