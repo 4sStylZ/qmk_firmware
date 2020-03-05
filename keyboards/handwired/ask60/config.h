@@ -32,9 +32,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define MATRIX_ROWS 5
 #define MATRIX_COLS 14
 
-// Originally made for a Teensy 2++
-#define MATRIX_COL_PINS { D7, E7, D5, D4, C7, C6, C5, C4, C3, C2, C1, C0, E1, E0 }
-#define MATRIX_ROW_PINS { D3, D2, D1, D0, B7 }
 #define UNUSED_PINS
 
 #define DIODE_DIRECTION COL2ROW
