@@ -19,9 +19,9 @@
 #include "quantum.h"
 
 /* Include the macro definition of the revision */
-#if defined(KEYBOARD_ask60_m0118_teensy2pp)
+#if defined(KEYBOARD_handwired_ask60_m0118_teensy2pp)
   #include "m0118_teensy2pp.h"
-#elif defined(KEYBOARD_ask60_m0116_teensy32)
+#elif defined(KEYBOARD_handwired_ask60_m0116_teensy32)
   #include "m0116_teensy32.h"
 #endif
 
