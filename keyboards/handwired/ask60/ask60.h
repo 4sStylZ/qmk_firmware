@@ -18,7 +18,7 @@
 
 #include "quantum.h"
 
-/* ASK60 physical definition macro */
+/* Default ASK60 definition macro, will be overload by revisions files.h */
 #define LAYOUT( \
      k00, k01, k02  , k03, k04  , k05  , k06  , k07  , k08  , k09, k010, k011, k012, k013 , \
      k10, k11, k12  , k13, k14  , k15  , k16  , k17  , k18  , k19, k110, k111, k112, K113 , \
