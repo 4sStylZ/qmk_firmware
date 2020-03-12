@@ -32,8 +32,9 @@
 #define MATRIX_COLS 14
 
 // Originally made for a Teensy 2++
-#define MATRIX_COL_PINS { B3, B1, B0, D0, C7, C6, C4, C3, A13, D2, D7, D3, D4, A12 }
+#define MATRIX_COL_PINS { B3, B1, B0, D0, C7, C6, C4, C3, D3, D2, D4, D7, A13, A12 }
 #define MATRIX_ROW_PINS { C2, C1, D6, D5, B2 }
+
 #define UNUSED_PINS
 
 #define DIODE_DIRECTION COL2ROW
