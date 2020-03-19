@@ -14,7 +14,6 @@
  *  0. You just DO WHAT THE FUCK YOU WANT TO.
  */
 
-
 #include QMK_KEYBOARD_H
 #include <keycodes.h>
 
