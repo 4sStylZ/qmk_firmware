@@ -1,6 +1,10 @@
 # Keypad 17
 
-An Alps-only handwired keypad based on the original ASK keypad plate.
+A handwired keypad with a very common layout.
+
+The purpose of this is to have a very simple keyboard to try QMK.
+
+If you don't have a keypad plate / keyboards switchs, just
 
 Keyboard Maintainer: QMK Community
 Hardware Supported: Pro micro and ASK keypad plate.
