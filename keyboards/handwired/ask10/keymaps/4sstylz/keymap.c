@@ -15,9 +15,15 @@
  */
 #include QMK_KEYBOARD_H
 
+#include "calculator.h"
+
 // Layer shorthand
 #define _QW 0
-#define _FN 1
+#define _CL 1
+
+enum custom_keycodes {
+  COMPUTE = SAFE_RANGE,
+};
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -35,17 +41,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * └─────────────┴──────┴──────┘
  */
   [_QW] = LAYOUT(
-    MO(_FN)    , KC_MINUS  , KC_9      , KC_0,
+    KC_NO      , RESET     , KC_NO     , TO(_CL), // Do not remove RESET dumbass !
     LSFT(KC_7) , LSFT(KC_8), LSFT(KC_9), KC_8,
     LSFT(KC_4) , LSFT(KC_5), LSFT(KC_6), KC_7,
     LSFT(KC_1) , LSFT(KC_2), LSFT(KC_3),
-    LSFT(KC_0),        KC_V, KC_ENT
+           LSFT(KC_0)      , KC_V      , KC_ENT
   ),
-  [_FN] = LAYOUT(
-    _______, RESET  , KC_9    , KC_BSPC,
-    KC_DEL , _______ , _______, KC_PGUP,
-    KC_HOME, KC_UP  , KC_END  , KC_PGDN,
-    KC_LEFT, KC_DOWN, KC_RIGHT,
-    KC_LCTL,       KC_LALT    , KC_ENT
+  [_CL] = LAYOUT(
+    _______,CALC , _______ , ENDCALC ,
+    KC_P7,   KC_P8  , KC_P9   , KC_PMNS,
+    KC_P4,   KC_P5  , KC_P6   , KC_PPLS,
+    KC_P1,   KC_P2  , KC_P3   ,
+        KC_P0       , KC_PDOT  , KC_PENT
+
   ),
 };

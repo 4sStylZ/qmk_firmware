@@ -1,3 +1,7 @@
+SRC += calculator.c
+
+CFLAGS += -fstrict-aliasing -ftree-vrp
+
 # MCU name
 MCU = atmega32u4
 
