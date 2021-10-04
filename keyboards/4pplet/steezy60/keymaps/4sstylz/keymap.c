@@ -1,5 +1,6 @@
 #include QMK_KEYBOARD_H
 #include <keycodes.h>
+#include "leds.h"
 
 // Implement Super-alt↯tab
 // See https://docs.qmk.fm/#/feature_macros?id=super-alt↯tab
@@ -16,6 +17,10 @@ enum custom_keycodes {
 
 const uint16_t PROGMEM lock_combo[] = {KC_J, KC_K, KC_L, KC_SCLN, COMBO_END};
 combo_t key_combos[COMBO_COUNT] = {COMBO(lock_combo, LGUI(KC_O))};
+
+// Layer shorthand
+#define _QW 0
+#define _FN 1
 
 // Define the keycodes for one qwerty layer and one Fn layer.
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -39,12 +44,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    *  - Right Ctrl is also page-down on a single tap.
    *  - Press JKLM for Windows + L (Session lock)
    */
-  [0] = LAYOUT_all( \
+  [_QW] = LAYOUT_all( \
     KC_GESC        , KC_1   , KC_2   , KC_3 , KC_4 , KC_5 , KC_6  , KC_7   , KC_8   , KC_9   , KC_0   , KC_MINS, KC_EQL , KC_NO  , KC_BSPC,
     KC_TAB         , KC_Q   , KC_W   , KC_E , KC_R , KC_T , KC_Y  , KC_U   , KC_I   , KC_O   , KC_P   , KC_LBRC, KC_RBRC, KC_BSLS,
     MO(1)          , KC_A   , KC_S   , KC_D , KC_F , KC_G , KC_H  , KC_J   , KC_K   , KC_L   , KC_SCLN, KC_QUOT, KC_NUHS, KC_ENT ,
-    KC_LSPO        , KC_NUBS, KC_Z   , KC_X , KC_C , KC_V , KC_B  , KC_N   , KC_M   , KC_COMM, KC_DOT , KC_SLSH, KC_RSPC         , KC_NO  ,
-    KC_LCPO        , KC_LGUI, KC_NO, KC_LALT, KC_NO, KC_SPC, KC_NO, KC_APP , KC_RGUI,KC_NO   , KC_RALT, KC_RCPC
+    KC_LSPO        , KC_NUBS, KC_Z   , KC_X , KC_C , KC_V , KC_B  , KC_N   , KC_M   , KC_COMM, KC_DOT , KC_SLSH, KC_NO  , KC_RSPC, KC_NO  ,
+    KC_LCPO        , KC_LGUI, KC_NO, KC_LALT, KC_NO, KC_SPC, KC_NO, KC_NO  , KC_APP ,KC_NO   , KC_RALT, KC_RCPC
   ),
 
   /* 1: second layer for media keys and many advanced features ç
@@ -60,11 +65,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * │      │      │      │                                                              │      │      │      │
    * └──────┴──────┴──────┴──────────────────────────────────────────────────────────────┴──────┴──────┴──────┘
    */
-  [1] = LAYOUT_all( \
-    LALT(KC_F4), KC_F1     , KC_F2       , KC_F3       , KC_F4       , KC_F5  , KC_F6  , KC_F7  , KC_F8  , KC_F9   , KC_F10 , KC_F11    , KC_F12 , KC_NO  , KC_DEL ,
-    _______    , _______   , SLC_ALL     , SLC_ROW     , SLC_WRD     , _______, KC_BSPC, KC_HOME, KC_UP  , KC_END  , KC_BRIU, KC_BRID   , KC_PSCR,
-    _______    , _______   , LSFT(KC_DEL), LCTL(KC_INS), LSFT(KC_INS), KC_DEL , KC_ENT , KC_LEFT, KC_DOWN, KC_RIGHT, BL_TOGG, BL_STEP   , BL_BRTG, _______,
-    _______    , _______   , KC_MUTE     , KC_VOLD     , KC_VOLU     , ALT_TAB, _______, _______, _______, _______ , _______, RESET     , _______         ,
+  [_FN] = LAYOUT_all( \
+    LALT(KC_F4), KC_F1     , KC_F2       , KC_F3       , KC_F4       , KC_F5  , KC_F6  , KC_F7  , KC_F8  , KC_F9   , KC_F10 , KC_F11    , KC_F12  , KC_NO  , KC_DEL ,
+    _______    , _______   , SLC_ALL     , SLC_ROW     , SLC_WRD     , _______, KC_BSPC, KC_HOME, KC_UP  , KC_END  , RGB_VAI, RGB_VAD   , RGB_TOG , KC_PSCR,
+    _______    , _______   , LSFT(KC_DEL), LCTL(KC_INS), LSFT(KC_INS), KC_DEL , KC_ENT , KC_LEFT, KC_DOWN, KC_RIGHT, _______, RGB_MOD   , RGB_RMOD, _______,
+    _______    , _______   , KC_MUTE     , KC_VOLD     , KC_VOLU     , ALT_TAB, KC_BRIU, KC_BRID, _______, _______ , _______, RESET     , _______ , _______, _______,
     _______, _______, _______, _______,  _______, _______, _______, _______, _______, _______, _______, _______
   )
 };
@@ -112,4 +117,22 @@ void matrix_scan_user(void) {     // The very important timer.
       is_alt_tab_active = false;
     }
   }
+}
+
+void keyboard_post_init_user (void) {
+  setDefaultDisplay();
+}
+
+// Led special implementation
+layer_state_t layer_state_set_user(layer_state_t state) {
+    switch (get_highest_layer(state)) {
+    case 1:
+        setFNDisplay();
+        break;
+
+    default: //  for any other layers, or the default layer
+        setDefaultDisplay();
+        break;
+    }
+  return state;
 }
