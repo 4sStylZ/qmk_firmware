@@ -11,5 +11,5 @@
 /* Enable double tab */
 #define TAPPING_TERM 175
 
-#define BACKLIGHT_BREATHING
-#undef  RGBLIGHT_ANIMATIONS
+#undef RGBLIGHT_ANIMATIONS
+#define RGBLIGHT_SLEEP

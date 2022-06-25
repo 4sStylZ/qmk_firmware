@@ -17,29 +17,29 @@
 
 void setDefaultDisplay(void) {
     _delay_ms(10);
-    rgblight_setrgb_at(180, 100, 0, 0);
+    rgblight_setrgb_at(255, 200, 50, 0);
     _delay_ms(10);
-    rgblight_setrgb_at(200, 100, 0, 1);
+    rgblight_setrgb_at(255, 200, 50, 1);
     _delay_ms(10);
-    rgblight_setrgb_at(220, 100, 0, 2);
+    rgblight_setrgb_at(255, 200, 50, 2);
     _delay_ms(10);
-    rgblight_setrgb_at(220, 100, 0, 3);
+    rgblight_setrgb_at(255, 200, 50, 3);
     _delay_ms(10);
-    rgblight_setrgb_at(200, 100, 0, 4);
+    rgblight_setrgb_at(255, 200, 50, 4);
     _delay_ms(10);
-    rgblight_setrgb_at(180, 100, 0, 5);
+    rgblight_setrgb_at(255, 200, 50, 5);
     _delay_ms(10);
-    rgblight_setrgb_at(180, 100, 0, 6);
+    rgblight_setrgb_at(255, 200, 50, 6);
     _delay_ms(10);
-    rgblight_setrgb_at(200, 100, 0, 7);
+    rgblight_setrgb_at(255, 200, 50, 7);
     _delay_ms(10);
-    rgblight_setrgb_at(220, 100, 0, 8);
+    rgblight_setrgb_at(255, 200, 50, 8);
     _delay_ms(10);
-    rgblight_setrgb_at(220, 100, 0, 9);
+    rgblight_setrgb_at(255, 200, 50, 9);
     _delay_ms(10);
-    rgblight_setrgb_at(200, 100, 0, 10);
+    rgblight_setrgb_at(255, 200, 50, 10);
     _delay_ms(10);
-    rgblight_setrgb_at(180, 100, 0, 11);
+    rgblight_setrgb_at(255, 200, 50, 11);
 
 }
 
